@@ -6,7 +6,30 @@
       <source src="http://download.f9.stream.nixcdn.com/e71585f1a91ea93d031e5bf7a3c2b0f3/59462f46/NhacCuaTui940/YeuLaThaThuEmChua18Ost-OnlyC-4885615.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
     </audio>
+	  <script>
+	  	var array = ['a', 'b']; // 10 chữ cái
+		array = array.concats(array); //x2
+		// random this array like game 1
+		// show array items by jquery, each item have 'index' attribute from 0
 
+		var preIdx;
+		$('.item').click(function() {
+		    if (!$(this).hasClass('finished')) {
+			//animation item (add class or using jquery)
+			var index = $(this).attr('index');
+			if (preIdx && (array[preIdx] == array[index])) {  
+			    //display 2 items (add finished class to items); 
+			    // $('.item[index='+preIdx+'], .item[index='+index+']').addClass('finished');
+			    $('.item:eq('+preIdx+'), .item:eq('+index+')').addClass('finished');
+			    if ($('.item.finished').length == 20) {
+				// end game;
+			    }
+			} 
+			preIdx = index;
+		    }
+
+		});
+	  </script>
     <input type="text" name="">
     <input type="hidden" name="">
     <table>
